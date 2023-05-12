@@ -12,15 +12,12 @@ public class CameraFollow : MonoBehaviour
     private void Awake()
     {
         tF = transform;
-    }
-    void Start()
-    {
         offset = tF.position - player.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        tF.position = Vector3.Lerp(tF.position, player.position + offset,speed);
+        tF.position = Vector3.Lerp(tF.position, player.position + offset, speed);
+
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player : Character
 {
-
+    public LayerMask layerGrounds;
     public JoystickControler joystick;
-    [Range(0,10)] public float speed;
+    [Range(0, 10)] public float speed;
     public override void OnInit()
     {
         base.OnInit();
@@ -14,27 +14,36 @@ public class Player : Character
 
     public override void OnUpdate()
     {
+        if (isDie) StopMove();
         base.OnUpdate();
         Move();
     }
+    protected override void CharacterDie()
+    {
+        LevelManager.Instance.LoseGame();
+    }
     public void Move()
     {
-        if (Input.GetMouseButton(0))
+        if (GameManager.Instance.IsStateGame(GameState.Gameplay))
         {
-            rb.velocity = joystick.direction * speed * Time.deltaTime;
-            Vector3 dirc = joystick.direction;
-            float angle = Mathf.Atan2(dirc.x, dirc.z) * Mathf.Rad2Deg;
-            Quaternion rotate = Quaternion.Euler(0, angle, 0);
-            rb.rotation = rotate;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            rb.velocity = Vector3.zero;
+            if (Input.GetMouseButton(0))
+            {
+                if (isDie) return;
+                rb.velocity = joystick.direction * speed * Time.deltaTime;
+                Vector3 dirc = joystick.direction;
+                float angle = Mathf.Atan2(dirc.x, dirc.z) * Mathf.Rad2Deg;
+                Quaternion rotate = Quaternion.Euler(0, angle, 0);
+                rb.rotation = rotate;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                rb.velocity = Vector3.zero;
+                Atack();
+            }
         }
     }
-    public void CheckGrounds()
+    public void StopMove()
     {
-
+        rb.velocity = Vector3.zero;
     }
-    
 }

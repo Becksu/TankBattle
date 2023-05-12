@@ -22,6 +22,10 @@ public class Ranger : MonoBehaviour
                 {
                     listCharacter.Remove(character);
                 }
+                else
+                {
+                    listCharacter.Remove(character);
+                }
             }
             else
             {
@@ -41,6 +45,7 @@ public class Ranger : MonoBehaviour
 
     public Character CharacterInRanger()
     {
+
         Character character = new Character();
         float distance = float.MaxValue;
         foreach(Character cha in listCharacter)

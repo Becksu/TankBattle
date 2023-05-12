@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Grounds
+  - BoxZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Grounds
   - Water
   - UI
-  - 
-  - 
+  - BoxZone
+  - Player
   - 
   - 
   - 

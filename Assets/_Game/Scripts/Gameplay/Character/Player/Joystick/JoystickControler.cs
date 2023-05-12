@@ -19,13 +19,14 @@ public class JoystickControler : MonoBehaviour
         screen.x = Screen.width;
         screen.y = Screen.height;
         direction = Vector3.zero;
-        panel.gameObject.SetActive(false);    }
+        panel.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
+        if (!GameManager.Instance.IsStateGame(GameState.Gameplay)) return;
         if (Input.GetMouseButtonDown(0))
         {
-
             startPos = mousePosition;
             joystickBG.anchoredPosition = startPos;
             panel.gameObject.SetActive(true);
