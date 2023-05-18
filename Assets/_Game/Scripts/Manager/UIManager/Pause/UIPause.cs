@@ -15,7 +15,11 @@ public class UIPause : MonoBehaviour
         bntsMainMenu.onClick.AddListener(MainMenuUI);
         bntsQuit.onClick.AddListener(QuitUI);
     }
-
+    public void OnInitUIPause()
+    {
+        bntsMainMenu.interactable = false;
+        bntsContinue.interactable = false;
+    }
     public void ContinueUI()
     {
 
@@ -46,6 +50,7 @@ public class UIPause : MonoBehaviour
     }
     public void DespawnUIPauseFromMainMenu()
     {
+
         gameObject.SetActive(false);
         GameManager.Instance.ChanggGameState(GameState.MainMenu);
         LevelManager.Instance.ResetGame();

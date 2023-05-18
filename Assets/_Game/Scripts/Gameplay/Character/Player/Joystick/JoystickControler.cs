@@ -47,6 +47,7 @@ public class JoystickControler : MonoBehaviour
     }
     private void OnDisable()
     {
+        panel.gameObject.SetActive(false);
         direction = Vector3.zero;
     }
 

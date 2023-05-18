@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 2760611092613170645}
   - component: {fileID: 2760611092613170644}
   - component: {fileID: -7555451778105179391}
+  - component: {fileID: 3283883882098066737}
   m_Layer: 5
   m_Name: Canvas-Lose
   m_TagString: Untagged
@@ -279,6 +280,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textScore: {fileID: 2760611092722518922}
   bntsHome: {fileID: 2760611092388436081}
+  group: {fileID: 3283883882098066737}
+--- !u!225 &3283883882098066737
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760611092613170641}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2760611092722518932
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.02745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -14,11 +14,12 @@ public enum ColorType
 }
 public class ColorObject : MonoBehaviour
 {
-    public Renderer meshrender;
+    public Renderer[] meshrender = new Renderer[7];
     public ColorType colorType;
 
     public Material GetMaterial()
     {
+        
         int random = Random.Range(0, 5);
         colorType = SetColor(random);
         Material material = LevelManager.Instance.colorData.colors[random];

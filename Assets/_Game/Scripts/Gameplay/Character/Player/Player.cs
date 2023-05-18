@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : Character
 {
-    public LayerMask layerGrounds;
     public JoystickControler joystick;
     [Range(0, 10)] public float speed;
     public override void OnInit()
@@ -14,7 +13,7 @@ public class Player : Character
 
     public override void OnUpdate()
     {
-        if (isDie) StopMove();
+        if (isDie) currenAnim = null; StopMove();
         base.OnUpdate();
         Move();
     }
@@ -34,6 +33,8 @@ public class Player : Character
                 float angle = Mathf.Atan2(dirc.x, dirc.z) * Mathf.Rad2Deg;
                 Quaternion rotate = Quaternion.Euler(0, angle, 0);
                 rb.rotation = rotate;
+                ChangAnim(Constans.ANIM_MOVE);
+
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -44,6 +45,7 @@ public class Player : Character
     }
     public void StopMove()
     {
+
         rb.velocity = Vector3.zero;
     }
 }

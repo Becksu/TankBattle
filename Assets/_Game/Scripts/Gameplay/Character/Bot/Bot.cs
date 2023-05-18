@@ -22,6 +22,7 @@ public class Bot : Character
     }
     protected override void CharacterDie()
     {
+        base.CharacterDie();
         MuitiplePool.Instance.ReturnGameObject(PoolType.Bot, gameObject);
         int random = Random.Range(1, 3);
         LevelManager.Instance.countDie--;
@@ -80,6 +81,7 @@ public class Bot : Character
     {
         meshAgent.isStopped = false;
         meshAgent.SetDestination(SetTarget());
+        ChangAnim(Constans.ANIM_MOVE);
     }
     public void StopMove()
     {

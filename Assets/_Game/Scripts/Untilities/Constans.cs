@@ -6,7 +6,10 @@ public class Constans
 {
     public const string TAG_PLAYER = "Player";
     public const string TAG_ENEMY = "Enemy";
-    public const string ANIM_MOVE = "Move";
-    public const string ANIM_DIE = "Die";
-    public const string ANIM_ATACK = "Atack";
+    public const string ANIM_MOVE = "idle";
+    public const string ANIM_DIE = "die";
+    public const string ANIM_ATACK = "atack";
+
+    public const string SFX_Gun = "SFX_Gun";
+    public const string SFX_Explode = "SFX_Explode";
 }

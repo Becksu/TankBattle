@@ -17,8 +17,11 @@ public class LevelManager : Singleton<LevelManager>
     }
     public void OnInit()
     {
+
         GetPlayer();
         GetBot();
+        characterCounts = 10;
+        countDie = 10;
     }
     public void GetPlayer()
     {
@@ -65,12 +68,14 @@ public class LevelManager : Singleton<LevelManager>
 
     public void WinGame()
     {
+        GameManager.Instance.ChanggGameState(GameState.GameWin);
         UIManager parents = FindObjectOfType<UIManager>();
         GameObject go = Resources.Load<GameObject>("UI/Canvas-Win");
         GameObject gameObject = Instantiate(go, parents.transform);
     }
     public void LoseGame()
     {
+        GameManager.Instance.ChanggGameState(GameState.GameLose);
         UIManager parents = FindObjectOfType<UIManager>();
         GameObject go = Resources.Load<GameObject>("UI/Canvas-Lose");
         GameObject gameObject = Instantiate(go, parents.transform);
